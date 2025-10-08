@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ElectraLead Industrial — Industrial Extension Leads</title>
+  <style>
+    :root{
+      --bg:#0b0b0b; --ink:#111; --ink-2:#333; --muted:#666; --card:#fff; --b:#e5e5e5;
+      --brand:#ff8a00; /* orange */
+      --brand-600:#e67a00;
+      --brand-700:#cc6d00;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;color:var(--ink)}
+    a{color:inherit}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:#fffccf10;background:#ffffffcc;border-bottom:1px solid var(--b);z-index:40}
+    .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:36px;width:auto;display:block}
+    nav{display:none;gap:20px}
+    .btn{border:1px solid #111;padding:10px 16px;border-radius:14px;font-weight:600}
+    .btn--accent{background:var(--brand);border-color:var(--brand);color:#fff}
+    .btn--accent:hover{background:var(--brand-600);border-color:var(--brand-600)}
+    .btn--ghost{border-color:rgba(255,255,255,.4);color:#fff}
+    .hamb{display:inline-flex;flex-direction:column;gap:4px;border:0;background:transparent}
+    .hamb span{display:block;width:24px;height:2px;background:#111}
+    @media(min-width:768px){nav{display:flex}.hamb{display:none}}
+
+    /* hero */
+    .hero{position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a,#2b2b2b);}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px}
+    .hero .wrap{padding:96px 0}
+    .hero h1{color:#fff;font-size:40px;line-height:1.1;margin:0}
+    @media(min-width:640px){.hero h1{font-size:52px}}
+    .hero p{color:#e6e6e6;max-width:60ch}
+    .cta{display:inline-flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .cta a{display:inline-block;border-radius:16px;padding:12px 18px;font-weight:600}
+    .cta .primary{background:var(--brand);color:#fff}
+    .cta .ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+    .bullets{display:flex;gap:20px;flex-wrap:wrap;color:#ddd;font-size:12px;margin-top:16px}
+
+    /* sections */
+    section{padding:64px 0}
+    h2{font-size:24px;margin:0;position:relative}
+    h2:after{content:"";display:block;width:48px;height:4px;background:var(--brand);border-radius:2px;margin-top:8px}
+    .sub{color:var(--muted);font-size:14px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:640px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}}
+    .card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+
+    .product-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--b);background:#f6f6f6}
+
+    /* contact */
+    .contact{background:#111;color:#fff}
+    .contact .muted{color:#bbb}
+    .contact .panel{background:#fff;color:#111;border-radius:18px;padding:18px}
+    input,textarea{width:100%;border:1px solid #ccc;border-radius:12px;padding:10px;font:inherit}
+    textarea{min-height:120px}
+    button{cursor:pointer}
+
+    footer{background:#fff;border-top:1px solid var(--b);padding:40px 0}
+    footer .cols{display:grid;gap:16px}
+    @media(min-width:768px){footer .cols{grid-template-columns:repeat(4,1fr)}}
+  </style>
+  <script>
+    function scrollToId(id){ const el = document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+    function toggle(){ const m = document.getElementById('mnav'); m.hidden = !m.hidden; }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container row">
+      <div class="brand">
+        <img id="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAABkCAYAAAD32uk+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAE0GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFjYWdlLWFkb2JlLWNvbS94bXAtZGlkLzEuMC8+AAo8eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+IDx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eG1wdGs9J0Fkb2JlIFhNUCBDb3JlIDYuMC1jMDAxIDc5LjE2NDc3MiwgMjAyMS8wNi8xNS0wMToyNjoyNyAgICAgICAgJz4gPHJkZjpSREYgeG1sbnM6cmRmPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjJz4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9J1hNUC1Db3JlIDYuMC1jMDAxJz4gPHhtcE1NOkRlcml2ZWRGcm9tIHJkZjpwYXJzZVR5cGU9J1Jlc291cmNlJz4gPHhtcE1NOkRvY3VtZW50SUQ+PHhtcE1NOkluc3RhbmNlSUQ+PC94bXBNTTpJbnN0YW5jZUlEPjwveG1wTU06RG9jdW1lbnRJRD4gPC94bXBNTTpEZXJpdmVkRnJvbT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDwveHBhY2tldD4AAAWPSURBVHic7d1LaxxXHcfxa87cJzvQ5q3uN+1bpVy0gU1J4Z3K2z5F+CQU0u0F7rIiyv2qkq0K8mJpZ3H2D1+WeTgq1A1m5/2a3Jkz9nbgwl5x+6w9Nn3z7f6zj6xwH0QF3i+4a5c2sHcZ8X6zFz8h1o3JvG4QG8b0pGhkqQ6m7Xc6Xv7k6zpnKp7s3q9qv9O0yKqQJg0c3rY8k1LkQ2pG1o8m0Hn7Sg8hR2k4mVxgQK1R0Q++...TRIMMED..." alt="Electralead" />
+        <div>
+          <div style="font-weight:600">ElectraLead Industrial</div>
+          <div style="font-size:12px;color:#666">Industrial extension leads</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#sectors" onclick="event.preventDefault();scrollToId('sectors')">Who Uses Our Leads</a>
+        <a href="#products" onclick="event.preventDefault();scrollToId('products')">Product Range</a>
+        <a href="#use-cases" onclick="event.preventDefault();scrollToId('use-cases')">Use Cases</a>
+        <a href="#compliance" onclick="event.preventDefault();scrollToId('compliance')">Compliance</a>
+        <a href="#about" onclick="event.preventDefault();scrollToId('about')">About</a>
+        <a class="btn btn--accent" href="#contact" onclick="event.preventDefault();scrollToId('contact')">Request a Quote</a>
+      </nav>
+      <button class="hamb" onclick="toggle()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="container" id="mnav" hidden>
+      <div style="display:grid;gap:8px;padding:10px 0 14px">
+        <a href="#sectors" onclick="event.preventDefault();toggle();scrollToId('sectors')">Who Uses Our Leads</a>
+        <a href="#products" onclick="event.preventDefault();toggle();scrollToId('products')">Product Range</a>
+        <a href="#use-cases" onclick="event.preventDefault();toggle();scrollToId('use-cases')">Use Cases</a>
+        <a href="#compliance" onclick="event.preventDefault();toggle();scrollToId('compliance')">Compliance</a>
+        <a href="#about" onclick="event.preventDefault();toggle();scrollToId('about')">About</a>
+        <a class="btn" href="#contact" onclick="event.preventDefault();toggle();scrollToId('contact')">Request a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container wrap">
+      <div class="grid grid-2" style="align-items:center;gap:28px">
+        <div>
+          <h1>Industrial Extension Leads for Temporary Power</h1>
+          <p>We build robust single- and three-phase extension leads for temporary power. H07RN-F &amp; SY across all types; Arctic (single-phase only). 13A–125A, 230/400V, IP44/IP67. UKCA/CE compliant and PAT-tested before dispatch.</p>
+          <div class="cta">
+            <a class="primary" href="#contact" onclick="event.preventDefault();scrollToId('contact')">Request a Quote</a>
+            <a class="ghost" href="#use-cases" onclick="event.preventDefault();scrollToId('use-cases')">View Use Cases</a>
+          </div>
+          <div class="bullets">
+            <span>⚡ IEC 60309 16A–125A</span>
+            <span>🔌 BS1363 (13A) & commando</span>
+            <span>📦 Next-day UK shipping</span>
+          </div>
+        </div>
+        <div>
+          <div class="grid grid-2" style="gap:16px">
+            <div class="card"><div style="font-size:28px">🧰</div><b>H07RN-F</b><div class="sub">Oil & abrasion‑resistant rubber cable</div></div>
+            <div class="card"><div style="font-size:28px">🛡️</div><b>SY</b><div class="sub">Braided armour for mechanical protection</div></div>
+            <div class="card"><div style="font-size:28px">❄️</div><b>Arctic</b><div class="sub">Low‑temperature flexible for 230V single‑phase</div></div>
+            <div class="card"><div style="font-size:28px">🧪</div><b>PAT</b><div class="sub">Continuity & insulation tests supplied</div></div>
+          </div>
+          <div class="sub" style="margin-top:8px;background:#fff;border:1px solid var(--b);display:inline-block;padding:6px 10px;border-radius:10px">UKCA • CE • PAT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sectors">
+    <div class="container">
+      <div class="row" style="height:auto;align-items:flex-end">
+        <h2>Who Uses Our Leads</h2>
+        <div class="sub">For temporary plug‑in power across industries</div>
+      </div>
+      <div class="grid grid-4">
+        <div class="card"><b>Events & Festivals</b><div class="sub">Temporary power runs, stages, marquees, site services.</div></div>
+        <div class="card"><b>Construction \& Site<\/b><div class=\"sub\">Temporary power, site lighting, tools, welfare (230\/400V only).<\/div></div>
+        <div class="card"><b>Film/TV & Broadcast</b><div class="sub">Location power, distro tie‑ins, safe flexible cabling.</div></div>
+        <div class="card"><b>Facilities & MRO</b><div class="sub">Planned works, maintenance outages, temporary circuits.</div></div>
+        <div class="card"><b>Hire Companies</b><div class="sub">Rugged stock for rental fleets, colour‑coded lengths.</div></div>
+        <div class="card"><b>Data Centres & Labs</b><div class="sub">Commissioning, temporary racks, test benches.</div></div>
+        <div class="card"><b>Education & Venues</b><div class="sub">Auditoria, events, open days, exhibitions.</div></div>
+        <div class="card"><b>Utilities & Civil</b><div class="sub">Pumps, lighting towers, portable plant.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" style="background:#fff;border-block:1px solid var(--b)">
+    <div class="container">
+      <h2>Product Range</h2>
+      <div class="grid grid-3" style="margin-top:16px">
+        <div class="card"><b>Single‑Phase Leads (13A/16A/32A)</b><div class="sub">BS1363 and IEC 60309, 230V. Cable: H07RN-F / SY / Arctic.</div><div style="margin-top:8px"><a href="#contact" onclick="event.preventDefault();scrollToId('contact')">Get Quote</a></div></div>
+        <div class="card"><b>Three‑Phase Leads (16A/32A/63A/125A)</b><div class="sub">IEC 60309, 400V, 4P/5P (16A/32A/63A/125A), phase rotation labelled. Cable: H07RN-F / SY.</div><div style="margin-top:8px"><a href="#contact" onclick="event.preventDefault();scrollToId('contact')">Get Quote</a></div></div>
+        <div class="card"><b>Cable Options by Type<\/b><div class="sub">Single-phase: H07RN-F \/ SY \/ Arctic. Three-phase: H07RN-F \/ SY.<\/div></div>
+        <div class="card"><b>Ingress Ratings</b><div class="sub">IP44 splash‑proof or IP67 watertight connectors and couplers.</div></div>
+        <div class="card"><b>Lengths & Marking</b><div class="sub">Standard 5–50m or custom; heatshrink ID, colour coded, QR asset tags.</div></div>
+        <div class="card"><b>Testing & Compliance</b><div class="sub">PAT test with record; UKCA/CE, BS EN 50525; continuity & insulation results supplied.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" style="background:#fff;border-top:1px solid var(--b)">
+    <div class="container">
+      <h2>Product Photos</h2>
+      <div class="sub">Replace the <code>src</code> paths with your images.</div>
+      <div class="grid grid-3" style="margin-top:16px">
+        <figure class="card"><img class="product-img" src="/products/16a-230v-arctic.jpg" alt="16A 230V Arctic lead"><figcaption class="sub">16A 230V Arctic</figcaption></figure>
+        <figure class="card"><img class="product-img" src="/products/32a-230v-h07rn.jpg" alt="32A 230V H07RN-F lead"><figcaption class="sub">32A 230V H07RN‑F</figcaption></figure>
+        <figure class="card"><img class="product-img" src="/products/63a-400v-sy.jpg" alt="63A 400V SY lead"><figcaption class="sub">63A 400V SY</figcaption></figure>
+      </div>
+      <div class="sub" style="margin-top:10px">Next.js: put files in <code>/public/products/</code> and reference as <code>/products/filename.jpg</code>. For this static preview, you can paste full image URLs.</div>
+    </div>
+  </section>
+
+  <section id="use-cases">
+    <div class="container">
+      <div class="row" style="height:auto;align-items:flex-end">
+        <h2>Use Cases</h2>
+        <div class="sub">Typical applications & examples</div>
+      </div>
+      <div class="grid grid-3" style="margin-top:16px">
+        <div class="card"><div style="aspect-ratio:16/9;border-radius:10px;background:#f3f3f3;margin-bottom:8px"></div><b>Festival Site – 32A/63A Runs</b><div class="sub">Rugged H07RN‑F leads colour‑coded by length for quick rig/de‑rig.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat‑shrink ID & asset tags</li><li>PAT test record supplied</li></ul></div>
+        <div class="card"><div style="aspect-ratio:16/9;border-radius:10px;background:#f3f3f3;margin-bottom:8px"></div><b>Construction Compound – 230V</b><div class="sub">Arctic grade 16A\/32A 230V leads feeding site lighting \& welfare units.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat‑shrink ID & asset tags</li><li>PAT test record supplied</li></ul></div>
+        <div class="card"><div style="aspect-ratio:16/9;border-radius:10px;background:#f3f3f3;margin-bottom:8px"></div><b>Broadcast Location – 125A Feeds</b><div class="sub">SY braided assemblies with IP67 connectors for camera trucks.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat‑shrink ID & asset tags</li><li>PAT test record supplied</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compliance" style="background:#fff;border-block:1px solid var(--b)">
+    <div class="container">
+      <h2>Compliance & Standards</h2>
+      <div class="grid grid-3 grid-4" style="margin-top:16px;text-align:center">
+        <div class="card">UKCA / CE Marking</div>
+        <div class="card">BS 7671 (Guidance)</div>
+        <div class="card">IEC 60309 Connectors</div>
+        <div class="card">BS EN 50525 Cables</div>
+        <div class="card">PAT Tested</div>  
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="grid grid-2" style="gap:28px;align-items:start">
+        <div>
+          <h2>About ElectraLead Industrial</h2>
+          <p class="sub" style="margin-top:8px">We manufacture and supply industrial extension leads for temporary power. Built in the UK with premium components and quality control so your teams can plug in reliably, even in harsh conditions.</p>
+          <div class="grid grid-2" style="margin-top:16px">
+            <div class="card"><div style="font-size:28px;font-weight:700">48h</div><div class="sub">Standard lead time (stock colours)</div></div>
+            <div class="card"><div style="font-size:28px;font-weight:700">5–50m</div><div class="sub">Common lengths (custom on request)</div></div>
+            <div class="card"><div style="font-size:28px;font-weight:700">IP44/IP67</div><div class="sub">Ingress protection options</div></div>
+            <div class="card"><div style="font-size:28px;font-weight:700">100%</div><div class="sub">Units PAT‑tested before dispatch</div></div>
+          </div>
+        </div>
+        <div class="card" style="border-radius:20px">
+          <b>Built‑to‑Order, Quickly</b>
+          <p class="sub">Most configurations ship within 48 hours. Provide connector type, voltage, length, cable spec (H07RN‑F / SY / Arctic), and quantity — we'll confirm and build.</p>
+          <b style="display:block;margin-top:12px">Why Our Leads</b>
+          <p class="sub">Rugged connectors, strain relief, correctly sized conductors, heat‑shrink ID, and continuity/insulation test sheets supplied.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="grid grid-2" style="gap:28px">
+        <div>
+          <h2>Request a Quote</h2>
+          <p class="muted">Tell us your connectors, voltage (230\/400V), cable type (H07RN‑F/SY/Arctic), length, and quantity. We reply within one business day with a quote.</p>
+          <div class="card" style="background:#111;color:#fff;border-color:#2a2a2a">
+            <div class="muted">Email</div>
+            <a href="mailto:sales@electralead.co.uk" style="font-weight:700;text-decoration:underline;color:#fff">sales@electralead.co.uk</a>
+            <div class="muted" style="margin-top:10px">Sales</div>
+            <div>ElectraLead LTD, Unit 2-3, Mount Road Trading Estate, Burntwood, UK</div>
+            <div class=\"muted\" style=\"font-size:12px\">Mon–Fri, 10:00–17:00</div>
+          </div>
+        </div>
+        <form class="panel" method="POST" action="https://formspree.io/f/your-id">
+          <div class="grid grid-2" style="gap:12px">
+            <label> Name<br><input name="name" required></label>
+            <label> Company<br><input name="company"></label>
+            <label> Email<br><input type="email" name="email" required></label>
+            <label> Phone<br><input name="phone"></label>
+            <label style="grid-column:1/-1"> Requirements<br>
+              <textarea name="details" placeholder="Connectors, voltage (230/400V), cable type (H07RN-F/SY/Arctic), length, quantity…" required></textarea>
+            </label>
+            <label style="grid-column:1/-1"> RFP / Drawings (URL)<br>
+              <input name="files" placeholder="Link to docs (SharePoint, OneDrive, etc.)">
+            </label>
+          </div>
+          <button type="submit" class="btn" style="width:100%;background:#111;color:#fff;border-color:#111">Send</button>
+          <div class="sub" style="font-size:12px;margin-top:6px">By submitting, you agree to our privacy policy. We’ll only use your info for this enquiry.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container cols">
+      <div>
+        <b>ElectraLead Industrial</b>
+        <div class="sub">Manufacturer of industrial extension leads for temporary power. Built to spec, shipped nationwide.</div>
+      </div>
+      <div>
+        <b>Links</b>
+        <div class="sub"><a href="#sectors" onclick="event.preventDefault();scrollToId('sectors')">Who Uses Our Leads</a></div>
+        <div class="sub"><a href="#products" onclick="event.preventDefault();scrollToId('products')">Product Range</a></div>
+        <div class="sub"><a href="#use-cases" onclick="event.preventDefault();scrollToId('use-cases')">Use Cases</a></div>
+      </div>
+      <div>
+        <b>Policies</b>
+        <div class="sub">Privacy Policy</div>
+        <div class="sub">Terms of Business</div>
+        <div class="sub">HSE Policy</div>
+      </div>
+      <div>
+        <b>Contact</b>
+        <div class="sub">sales@electralead.co.uk</div>
+        <div class="sub">+44 (0)1234 567890</div>
+      </div>
+    </div>
+    <div class="container" style="text-align:center;font-size:12px;color:#666;margin-top:12px">© <span id="y"></span> ElectraLead Industrial. All rights reserved.</div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
