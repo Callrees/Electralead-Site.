@@ -123,20 +123,18 @@
       .hero .grid-2{ grid-template-columns: 1fr }
       .hero .grid-2 > div:last-child{ margin-top:16px }
 
-      /* >>> show image only behind the intro on phones <<< */
-      :root{ --hero-mobile-cutoff: 420px; } /* adjust 360–480px to taste */
-      .hero::after{
-        content:"";
-        position:absolute; left:0; right:0;
-        top: var(--hero-mobile-cutoff); bottom:0;
-        background:#fff;                 /* mask below the intro */
-        z-index:2;                       /* above image/grid, below .wrap */
-        pointer-events:none;
+      /* >>> show the ENTIRE photo on phones (no cropping) <<< */
+      .hero-image{
+        object-fit: contain;     /* key change: zooms OUT to fit */
+        object-position: 50% 0%; /* keep focal point toward the top */
       }
-      /* ensure the grid overlay sits under the mask on mobile */
-      .hero-grid{ z-index:1; }
-      /* keep the interesting part of photo in the visible area */
-      .hero-image{ object-position: 50% 35%; }
+
+      /* remove the white mask so content sits over the image */
+      .hero::after{ display:none; }
+
+      /* put the grid overlay back above the image (since we removed the mask) */
+      .hero-grid{ z-index: 2; }
+
       /* a touch more vertical breathing room */
       .hero .wrap{ padding:72px 0 40px; }
     }
