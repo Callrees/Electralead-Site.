@@ -6,10 +6,7 @@
   <title>ElectraLead LTD — Industrial Extension Leads</title>
 
   <!-- Preload your actual hero set in /products/ (WebP) -->
-  <link rel="preload" as="image"
-        href="products/hero-1280.webp"
-        imagesrcset="products/hero-480.webp 480w, products/hero-768.webp 768w, products/hero-1280.webp 1280w, products/hero-1920.webp 1920w, products/hero-2560.webp 2560w"
-        imagesizes="100vw" type="image/webp">
+  <link rel="preload" as="image" href="products/hero.png">
 
   <!-- SEO essentials -->
   <meta name="description" content="Robust single- and three-phase industrial extension leads (13A–125A, 230/400V). H07RN-F, SY, Arctic. UKCA/CE. PAT-tested. Built in the UK." />
@@ -57,21 +54,12 @@
       object-fit:cover; object-position:center; z-index:0;
     }
     .hero-bg{ z-index:1; }
-    .hero-grid{ z-index:2; }
     .hero .wrap{ position:relative; z-index:3; }
 
     .hero-bg{
       position:absolute; inset:0;
       background:linear-gradient(135deg,rgba(10,10,10,.6),rgba(43,43,43,.6));
       z-index:1; pointer-events:none;
-    }
-    .hero-grid{
-      position:absolute; inset:0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
-      background-size:32px 32px;
-      z-index:2; pointer-events:none;
     }
 
     .hero .wrap{padding:96px 0}
@@ -133,7 +121,6 @@
       .hero::after{ display:none; }
 
       /* put the grid overlay back above the image (since we removed the mask) */
-      .hero-grid{ z-index: 2; }
 
       /* a touch more vertical breathing room */
       .hero .wrap{ padding:72px 0 40px; }
@@ -211,23 +198,15 @@
   <!-- HERO -->
   <section class="hero" aria-label="Hero">
     <picture>
-      <source type="image/webp"
-              srcset="products/hero-480.webp 480w,
-                      products/hero-768.webp 768w,
-                      products/hero-1280.webp 1280w,
-                      products/hero-1920.webp 1920w,
-                      products/hero-2560.webp 2560w"
-              sizes="100vw">
+      <source type="image/png" srcset="products/hero.png" sizes="100vw">
       <img class="hero-image"
-           src="products/hero-1920.jpg"
+           src="products/hero.png"
            width="2400" height="1100"
            fetchpriority="high"
            alt="Industrial extension leads for temporary power">
     </picture>
 
     <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-
     <div class="container wrap">
       <div class="grid grid-2" style="align-items:center;gap:28px">
         <div>
