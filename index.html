@@ -439,7 +439,7 @@
               <div class="muted" style="font-size:12px">Mon–Fri, 10:00–17:00</div>
             </div>
           </div>
-          <form class="panel" method="POST" action="https://formspree.io/f/your-id">
+          <form id="quote-form" class="panel" method="POST" action="https://formspree.io/f/your-id">
             <!-- Honeypot -->
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
             <div class="grid grid-2" style="gap:12px">
@@ -455,6 +455,7 @@
               </label>
             </div>
             <button type="submit" class="btn" style="width:100%;background:#111;color:#fff;border-color:#111">Send</button>
+            <div id="quote-status" class="sub" style="margin-top:8px"></div>
             <div class="sub" style="font-size:12px;margin-top:6px">By submitting, you agree to our privacy policy. We’ll only use your info for this enquiry.</div>
           </form>
         </div>
@@ -490,6 +491,62 @@
     <div class="container" style="text-align:center;font-size:12px;color:#666;margin-top:12px">© <span id="y"></span> ElectraLead LTD. All rights reserved.</div>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    // Handle Formspree submit with AJAX. If the placeholder endpoint is present,
+    // fall back to a mailto: so the form still works until the real ID is set.
+    (function(){
+      const form = document.getElementById('quote-form');
+      if(!form) return;
+      const status = document.getElementById('quote-status');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const action = form.getAttribute('action') || '';
+
+        // If the Formspree ID hasn't been set yet, use a mailto: fallback
+        if(action.includes('/your-id')){
+          const name = data.get('name') || '';
+          const company = data.get('company') || '';
+          const email = data.get('email') || '';
+          const phone = data.get('phone') || '';
+          const details = data.get('details') || '';
+          const files = data.get('files') || '';
+          const params = new URLSearchParams({
+            subject: 'ElectraLead Quote Request',
+            body: `Name: ${name}
+Company: ${company}
+Email: ${email}
+Phone: ${phone}
+Details: ${details}
+Files: ${files}`
+          });
+          window.location.href = `mailto:sales@electralead.co.uk?${params.toString()}`;
+          status.textContent = 'Opening your email client… (Set your real Formspree ID to enable on-page submit.)';
+          return;
+        }
+
+        // Real Formspree submit
+        status.textContent = 'Sending…';
+        try{
+          const resp = await fetch(action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+          if(resp.ok){
+            form.reset();
+            status.textContent = 'Thanks — your request was sent. We\'ll get back to you within one business day.';
+          }else{
+            status.textContent = 'Sorry — there was a problem sending the form. Please email sales@electralead.co.uk.';
+          }
+        }catch(err){
+          status.textContent = 'Network error — please email sales@electralead.co.uk.';
+        }
+      });
+    })();
+
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
