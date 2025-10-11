@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Electralead LTD — Industrial Extension Leads</title>
+  <link rel="preload" as="image"
+      href="products/hero-1280.webp"
+      imagesrcset="products/hero-480.webp 480w, products/hero-768.webp 768w, products/hero-1280.webp 1280w, products/hero-1920.webp 1920w, products/hero-2560.webp 2560w"
+      imagesizes="100vw" type="image/webp">
 
   <style>
     :root{
@@ -31,15 +35,21 @@
 
     /* hero */
     .hero{position:relative;overflow:hidden}
+/* make the hero image fill the banner */
+.hero-image,
+.hero-image img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;   /* tweak if you want the subject shifted */
+  z-index:0;                /* under the overlays */
+}
+.hero-bg{ z-index:1; }
+.hero-grid{ z-index:2; }
+.hero .wrap{ position:relative; z-index:3; }
 
-    /* the photo behind everything */
-    .hero-image{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit:cover;             /* fill the banner; centre-crops if needed */
-      /* object-position:70% center; */  /* optional: shift focus */
-      z-index:0;
-    }
 
     /* dark gradient overlay (keeps text readable) */
     .hero-bg{
