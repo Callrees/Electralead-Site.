@@ -30,7 +30,10 @@
 
     /* hero */
     .hero{position:relative;overflow:hidden}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a,#2b2b2b);}
+    .hero-bg{position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(10,10,10,.6),rgba(43,43,43,.6));
+}
+
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px}
     .hero .wrap{padding:96px 0}
     .hero h1{color:#fff;font-size:40px;line-height:1.1;margin:0}
@@ -104,6 +107,14 @@
   </header>
 
   <section class="hero">
+  <img class="hero-image"
+       src="/hero/hero-1600.jpg"
+       srcset="/hero/hero-800.jpg 800w,
+               /hero/hero-1600.jpg 1600w,
+               /hero/hero-2400.jpg 2400w"
+       sizes="100vw"
+       width="2400" height="1100"  <!-- use your real width/height -->
+       alt="" />
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="container wrap">
