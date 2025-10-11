@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ElectraLead LTD — Industrial Extension Leads</title>
+  <title>Electralead LTD — Industrial Extension Leads</title>
 
   <style>
     :root{
@@ -63,7 +63,9 @@
     .hero h1{color:#fff;font-size:40px;line-height:1.1;margin:0}
     @media(min-width:640px){.hero h1{font-size:52px}}
     .hero p{color:#e6e6e6;max-width:60ch}
-    .cta{display:inline-flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+
+    /* CTA buttons: use flex; we'll center on mobile */
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
     .cta a{display:inline-block;border-radius:16px;padding:12px 18px;font-weight:600}
     .cta .primary{background:var(--brand);color:#fff}
     .cta .ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
@@ -111,7 +113,7 @@
         margin: 10px auto 0;
         text-align: center;
       }
-      /* center CTAs & bullets */
+      /* center CTAs & bullets with the text */
       .cta{ justify-content: center }
       .bullets{ justify-content: center }
 
@@ -125,6 +127,11 @@
       /* a touch more vertical breathing room */
       .hero .wrap{ padding: 72px 0 40px; }
     }
+
+    /* Desktop/tablet: keep CTAs aligned with left text (change to center if you prefer) */
+    @media (min-width: 640px){
+      .cta{ justify-content: flex-start; }
+    }
   </style>
 
   <script>
@@ -137,9 +144,9 @@
     <div class="container row">
       <div class="brand">
         <!-- keep using your embedded logo until you upload /logo.png -->
-        <img id="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAABkCAYAAAD32uk+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAE0GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFjYWdlLWFkb2JlLWNvbS94bXAtZGlkLzEuMC8+AAo8eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+IDx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eG1wdGs9J0Fkb2JlIFhNUCBDb3JlIDYuMC1jMDAxIDc5LjE2NDc3MiwgMjAyMS8wNi8xNS0wMToyNjoyNyAgICAgICAgJz4gPHJkZjpSREYgeG1sbnM6cmRmPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjJz4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9J1hNUC1Db3JlIDYuMC1jMDAxJz4gPHhtcE1NOkRlcml2ZWRGcm9tIHJkZjpwYXJzZVR5cGU9J1Jlc291cmNlJz4gPHhtcE1NOkRvY3VtZW50SUQ+PHhtcE1NOkluc3RhbmNlSUQ+PC94bXBNTTpJbnN0YW5jZUlEPjwveG1wTU06RG9jdW1lbnRJRD4gPC94bXBNTTpEZXJpdmVkRnJvbT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDwveHBhY2tldD4AAAWPSURBVHic7d1LaxxXHcfxa87cJzvQ5q3uN+1bpVy0gU1J4Z3K2z5F+CQU0u0F7rIiyv2qkq0K8mJpZ3H2D1+WeTgq1A1m5/2a3Jkz9nbgwl5x+6w9Nn3z7f6zj6xwH0QF3i+4a5c2sHcZ8X6zFz8h1o3JvG4QG8b0pGhkqQ6m7Xc6Xv7k6zpnKp7s3q9qv9O0yKqQJg0c3rY8k1LkQ2pG1o8m0Hn7Sg8hR2k4mVxgQK1R0Q++..." alt="Electralead" />
+        <img id="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAABkCAYAAAD32uk+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAE0GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFjYWdlLWFkb2JlLWNvbS94bXAtZGlkLzEuMC8+AAo8eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+IDx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eG1wdGs9J0Fkb2JlIFhNUCBDb3JlIDYuMC1jMDAxIDc5LjE2NDc3MiwgMjAyMS8wNi8xNS0wMToyNjoyNyAgICAgICAgJz4gPHJkZjpSREYgeG1sbnM6cmRmPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjJz4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9J1hNUC1Db3JlIDYuMC1jMDAxJz4gPHhtcE1NOkRlcml2ZWRGcm9tIHJkZjpwYXJzZVR5cGU9J1Jlc291cmNlJz4gPHhtcE1NOkRvY3VtZW50SUQ+PHhtcE1NOkluc3RhbmNlSUQ+PC94bXBNTTpJbnN0YW5jZUlEPjwveG1wTU06RG9jdW1lbnRJRD4gPC94bXBNTTpEZXJpdmVkRnJvbT4gPC9yZGY6RGVzY3JpcHRpb24+IDwveHBhY2tldD4AAAWPSURBVHic7d1LaxxXHcfxa87cJzvQ5q3uN+1bpVy0gU1J4Z3K2z5F+CQU0u0F7rIiyv2qkq0K8mJpZ3H2D1+WeTgq1A1m5/2a3Jkz9nbgwl5x+6w9Nn3z7f6zj6xwH0QF3i+4a5c2sHcZ8X6zFz8h1o3JvG4QG8b0pGhkqQ6m7Xc6Xv7k6zpnKp7s3q9qv9O0yKqQJg0c3rY8k1LkQ2pG1o8m0Hn7Sg8hR2k4mVxgQK1R0Q++..." alt="Electralead" />
         <div>
-          <div style="font-weight:600">ElectraLead Industrial</div>
+          <div style="font-weight:600">Electralead LTD</div>
           <div style="font-size:12px;color:#666">Industrial extension leads</div>
         </div>
       </div>
