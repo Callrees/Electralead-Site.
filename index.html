@@ -86,6 +86,12 @@
 
     .product-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--b);background:#f6f6f6}
 
+    .usecase-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;background:#f3f3f3;margin-bottom:8px;display:block}
+
+    /* shrink use-case images on desktop */
+    @media (min-width:1024px){ .usecase-img{ aspect-ratio:16/9; } }
+    
+
     /* contact */
     .contact{background:#111;color:#fff}
     .contact .muted{color:#bbb}
@@ -260,7 +266,7 @@
     <section id="products" style="background:#fff;border-block:1px solid var(--b)">
       <div class="container">
         <h2>Product Range</h2>
-        <div class="grid grid-3" style="margin-top:16px">
+        <div class="grid grid-2 grid-3" style="margin-top:16px">
           <div class="card"><b>Single-Phase Leads (13A/16A/32A)</b><div class="sub">BS1363 and IEC 60309, 230V. Cable: H07RN-F / SY / Arctic.</div><div style="margin-top:8px"><a href="#contact">Get Quote</a></div></div>
           <div class="card"><b>Three-Phase Leads (16A/32A/63A/125A)</b><div class="sub">IEC 60309, 400V, 4PIN/5PIN, phase rotation labelled. Cable: H07RN-F / SY.</div><div style="margin-top:8px"><a href="#contact">Get Quote</a></div></div>
           <div class="card"><b>Cable Options by Type</b><div class="sub">Single-phase: H07RN-F / SY / Arctic. Three-phase: H07RN-F / SY.</div></div>
@@ -301,9 +307,33 @@
           <p class="sub">Typical applications &amp; examples</p>
         </div>
         <div class="grid grid-3" style="margin-top:16px">
-          <div class="card"><div style="aspect-ratio:16/9;border-radius:10px;background:#f3f3f3;margin-bottom:8px"></div><b>Festival Site – 32A/63A Runs</b><div class="sub">Rugged H07RN-F leads colour-coded by length for quick rig/de-rig.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat-shrink ID &amp; asset tags</li><li>PAT test record supplied</li></ul></div>
-          <div class="card"><div style="aspect-ratio:16/9;border-radius:10px;background:#f3f3f3;margin-bottom:8px"></div><b>Construction Compound – 230V</b><div class="sub">Arctic grade 16A/32A 230V leads feeding site lighting &amp; welfare units.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat-shrink ID &amp; asset tags</li><li>PAT test record supplied</li></ul></div>
-          <div class="card"><div style="aspect-ratio:16/9;border-radius:10px;background:#f3f3f3;margin-bottom:8px"></div><b>Broadcast Location – 125A Feeds</b><div class="sub">SY braided assemblies with IP67 connectors for camera trucks.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat-shrink ID &amp; asset tags</li><li>PAT test record supplied</li></ul></div>
+          <div class="card"><img class="usecase-img"
+               loading="lazy" decoding="async"
+               src="products/usecase-festival-640.webp"
+               srcset="products/usecase-festival-640.webp 640w,
+                       products/usecase-festival-960.webp 960w,
+                       products/usecase-festival-1280.webp 1280w"
+               sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
+               width="1280" height="720"
+               alt="Festival site power runs using 32A/63A extension leads"><b>Festival Site – 32A/63A Runs</b><div class="sub">Rugged H07RN-F leads colour-coded by length for quick rig/de-rig.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat-shrink ID &amp; asset tags</li><li>PAT test record supplied</li></ul></div>
+          <div class="card"><img class="usecase-img"
+               loading="lazy" decoding="async"
+               src="products/usecase-construction-640.webp"
+               srcset="products/usecase-construction-640.webp 640w,
+                       products/usecase-construction-960.webp 960w,
+                       products/usecase-construction-1280.webp 1280w"
+               sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
+               width="1280" height="720"
+               alt="Construction compound 230V lighting and welfare powered via 16A/32A leads"><b>Construction Compound – 230V</b><div class="sub">Arctic grade 16A/32A 230V leads feeding site lighting &amp; welfare units.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat-shrink ID &amp; asset tags</li><li>PAT test record supplied</li></ul></div>
+          <div class="card"><img class="usecase-img"
+               loading="lazy" decoding="async"
+               src="products/usecase-broadcast-640.webp"
+               srcset="products/usecase-broadcast-640.webp 640w,
+                       products/usecase-broadcast-960.webp 960w,
+                       products/usecase-broadcast-1280.webp 1280w"
+               sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
+               width="1280" height="720"
+               alt="Broadcast location 125A feeds with SY braided assemblies and IP67 connectors"><b>Broadcast Location – 125A Feeds</b><div class="sub">SY braided assemblies with IP67 connectors for camera trucks.</div><ul class="sub"><li>Rugged strain relief</li><li>Heat-shrink ID &amp; asset tags</li><li>PAT test record supplied</li></ul></div>
         </div>
       </div>
     </section>
