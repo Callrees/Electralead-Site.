@@ -92,6 +92,39 @@
     footer{background:#fff;border-top:1px solid var(--b);padding:40px 0}
     footer .cols{display:grid;gap:16px}
     @media(min-width:768px){footer .cols{grid-template-columns:repeat(4,1fr)}}
+
+    /* --- MOBILE HERO TWEAKS --- */
+    @media (max-width: 639px){
+      /* safer side padding on iOS notch phones */
+      .hero .container{
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+      }
+      /* center the text + friendlier sizes */
+      .hero h1{
+        font-size: clamp(26px, 8vw, 34px);
+        text-align: center;
+      }
+      .hero p{
+        font-size: 15px;
+        max-width: 38ch;
+        margin: 10px auto 0;
+        text-align: center;
+      }
+      /* center CTAs & bullets */
+      .cta{ justify-content: center }
+      .bullets{ justify-content: center }
+
+      /* one-column layout + spacing for card column */
+      .hero .grid-2{ grid-template-columns: 1fr }
+      .hero .grid-2 > div:last-child{ margin-top: 16px }
+
+      /* keep interesting part of photo visible on phones */
+      .hero-image{ object-position: 60% center; }
+
+      /* a touch more vertical breathing room */
+      .hero .wrap{ padding: 72px 0 40px; }
+    }
   </style>
 
   <script>
