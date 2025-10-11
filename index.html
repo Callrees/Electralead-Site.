@@ -439,9 +439,13 @@
               <div class="muted" style="font-size:12px">Mon–Fri, 10:00–17:00</div>
             </div>
           </div>
-          <form id="quote-form" class="panel" method="POST" action="https://formspree.io/f/your-id">
-            <!-- Honeypot -->
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <form id="quote-form" class="panel" method="POST" action="https://formsubmit.co/ajax/sales@electralead.co.uk">
+            $1
+            <input type="hidden" name="_subject" value="ElectraLead Quote Request">
+            <input type="hidden" name="_template" value="table">
+            $1
+            $1
+            <input type="hidden" name="_from" value="ElectraLead Sales">
             <div class="grid grid-2" style="gap:12px">
               <label> Name<br><input name="name" autocomplete="name" required></label>
               <label> Company<br><input name="company" autocomplete="organization"></label>
@@ -492,56 +496,50 @@
   </footer>
 
   <script>
-    // Handle Formspree submit with AJAX. If the placeholder endpoint is present,
-    // fall back to a mailto: so the form still works until the real ID is set.
+    // Handle FormSubmit submit with AJAX. Falls back to mailto: if a network/error occurs.
     (function(){
       const form = document.getElementById('quote-form');
       if(!form) return;
       const status = document.getElementById('quote-status');
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const action = form.getAttribute('action') || '';
-
-        // If the Formspree ID hasn't been set yet, use a mailto: fallback
-        if(action.includes('/your-id')){
-          const name = data.get('name') || '';
-          const company = data.get('company') || '';
-          const email = data.get('email') || '';
-          const phone = data.get('phone') || '';
-          const details = data.get('details') || '';
-          const files = data.get('files') || '';
-          const params = new URLSearchParams({
-            subject: 'ElectraLead Quote Request',
-            body: `Name: ${name}
+      function mailtoFallback(data, note){
+        const name = data.get('name') || '';
+        const company = data.get('company') || '';
+        const email = data.get('email') || '';
+        const phone = data.get('phone') || '';
+        const details = data.get('details') || '';
+        const files = data.get('files') || '';
+        const params = new URLSearchParams({
+          subject: 'ElectraLead Quote Request',
+          body: `Name: ${name}
 Company: ${company}
 Email: ${email}
 Phone: ${phone}
 Details: ${details}
 Files: ${files}`
-          });
-          window.location.href = `mailto:sales@electralead.co.uk?${params.toString()}`;
-          status.textContent = 'Opening your email client… (Set your real Formspree ID to enable on-page submit.)';
-          return;
-        }
+        });
+        window.location.href = `mailto:sales@electralead.co.uk?${params.toString()}`;
+        if(status) status.textContent = note || 'Opening your email client…';
+      }
 
-        // Real Formspree submit
-        status.textContent = 'Sending…';
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        if(status) status.textContent = 'Sending…';
         try{
-          const resp = await fetch(action, {
+          const resp = await fetch(form.action, {
             method: 'POST',
             headers: { 'Accept': 'application/json' },
             body: data
           });
           if(resp.ok){
             form.reset();
-            status.textContent = 'Thanks — your request was sent. We\'ll get back to you within one business day.';
+            if(status) status.textContent = 'Thanks — your request was sent. We\'ll get back to you within one business day.';
           }else{
-            status.textContent = 'Sorry — there was a problem sending the form. Please email sales@electralead.co.uk.';
+            mailtoFallback(data, 'Couldn\'t reach the form service — falling back to email…');
           }
         }catch(err){
-          status.textContent = 'Network error — please email sales@electralead.co.uk.';
+          mailtoFallback(data, 'Network error — falling back to email…');
         }
       });
     })();
