@@ -65,7 +65,6 @@
       background:linear-gradient(135deg,rgba(10,10,10,.6),rgba(43,43,43,.6));
       z-index:1; pointer-events:none;
     }
-
     .hero-grid{
       position:absolute; inset:0;
       background-image:
@@ -123,11 +122,23 @@
       .bullets{ justify-content:center }
       .hero .grid-2{ grid-template-columns: 1fr }
       .hero .grid-2 > div:last-child{ margin-top:16px }
-      .hero-image{ object-position: 60% center; }
+
+      /* >>> show image only behind the intro on phones <<< */
+      :root{ --hero-mobile-cutoff: 420px; } /* adjust 360–480px to taste */
+      .hero::after{
+        content:"";
+        position:absolute; left:0; right:0;
+        top: var(--hero-mobile-cutoff); bottom:0;
+        background:#fff;                 /* mask below the intro */
+        z-index:2;                       /* above image/grid, below .wrap */
+        pointer-events:none;
+      }
+      /* ensure the grid overlay sits under the mask on mobile */
+      .hero-grid{ z-index:1; }
+      /* keep the interesting part of photo in the visible area */
+      .hero-image{ object-position: 50% 35%; }
+      /* a touch more vertical breathing room */
       .hero .wrap{ padding:72px 0 40px; }
-    }
-    @media (min-width: 640px){
-      .cta{ justify-content:flex-start; }
     }
 
     /* Focus visibility */
@@ -168,17 +179,13 @@
 <body>
   <header>
     <div class="container row">
-   <div class="brand">
-  <img id="site-logo"
-       src="products/logo.png"
-       alt="ElectraLead LTD logo"
-       height="36">
-  <div>
-    <div style="font-weight:600">ElectraLead LTD</div>
-    <div style="font-size:12px;color:#666">Industrial extension leads</div>
-  </div>
-</div>
-
+      <div class="brand">
+        <img id="site-logo" src="products/logo.png" alt="ElectraLead LTD logo" height="36">
+        <div>
+          <div style="font-weight:600">ElectraLead LTD</div>
+          <div style="font-size:12px;color:#666">Industrial extension leads</div>
+        </div>
+      </div>
       <nav>
         <a href="#sectors">Who Uses Our Leads</a>
         <a href="#products">Product Range</a>
